@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const axios     = require('axios')
 const Guilds    = require('../crud/Guilds')
+const I18N      = require('../utils/I18N')
 const Tweet     = require('../schemas/Tweet')
 const Tweets    = require('../crud/Tweets')
 
@@ -15,7 +16,7 @@ class Twitter {
         }, 5 * 60000)
     }
 
-    async authenticate () {
+    static async authenticate () {
         return new Promise(async (resolve, reject) => {
             const credentials               = `${process.env.TWITTER_API_KEY}:${process.env.TWITTER_SECRET_KEY}`
             const credentialsBase64Encoded  = Buffer.from(credentials).toString('base64')
@@ -56,7 +57,7 @@ class Twitter {
     async checkForNewTweets () {
         try {
             const lastTweet     = new Tweets().getLatest()
-            const token         = await this.authenticate()
+            const token         = await Twitter.authenticate()
             const headers       = { Authorization: `Bearer ${token}` }
             const params        = {
                 'exclude_replies'   : true,
@@ -77,6 +78,29 @@ class Twitter {
     digestTweet (tweet) {
         new Tweets().add(new Tweet(tweet))
         this.broadcastTweetURL(`https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`)
+    }
+
+    static async getLatestTweet (message) {
+        try {
+            const guild         = new Guilds().getById(message.guild.id)
+            const token         = await Twitter.authenticate()
+            const headers       = { Authorization: `Bearer ${token}` }
+            const params        = {
+                'exclude_replies'   : true,
+                'include_rts'       : false,
+                'screen_name'       : 'ForgeHub'
+            }
+
+            const { data }      = await axios.get('https://api.twitter.com/1.1/statuses/user_timeline.json?', { headers, params })
+            if (data.length < 1) {
+                const $t = new I18N(guild.locale)
+                message.channel.send($t.get('errorCantFindTweet'))
+            } else 
+                message.channel.send(`https://twitter.com/${data[0].user.screen_name}/status/${data[0].id_str}`)
+            
+        } catch (err) {
+            process.dLogger.log(`in controller/Twitter/getLatestTweet: ${err.message}`)
+        }
     }
 }
 

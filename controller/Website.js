@@ -7,11 +7,12 @@ const Maps              = require('./../crud/Maps')
 const I18N              = require('./../utils/I18N')
 
 class Website {
-    constructor (discordClient) {
+    constructor (discordClient, watch = true) {
         this.discordClient  = discordClient
         this.guildsCrud     = new Guilds()
 
-        this.watchForNewMaps()
+        if (watch)
+            this.watchForNewMaps()
     }
 
     
@@ -43,20 +44,6 @@ class Website {
         })
     }
 
-    async watchForNewMaps () {
-        const check = async () => {
-            const mapList = await this.fetchMapList()
-            if (!mapList)
-                return 
-            
-            const newMaps = this.getNewMapsObjFromHTML(mapList)
-            if (newMaps && newMaps.length > 0 )
-                this.broadcastNewMaps(newMaps)
-        }
-        check()
-        setInterval(check, 15 * 60000)
-    }
-
     async fetchMapList () {
         try {
             const { body }  = await got('https://www.forgehub.com/maps/')
@@ -86,7 +73,7 @@ class Website {
         return embed
     }
 
-    getNewMapsObjFromHTML (html) {
+    getNewMapsObjFromHTML (html, forceNew = true) {
         const list      = html('ol.resourceList > li')
         const newMaps   = []
         for (let i in list) {
@@ -97,7 +84,7 @@ class Website {
 
             const id = li.attribs.id
 
-            if (!this._isNew(id))
+            if (forceNew && !this._isNew(id))
                 continue 
             
             const image = html(`li#${id} .resourceIcon > img`).attr('src')
@@ -120,6 +107,40 @@ class Website {
             this._saveMaps(newMaps)
 
         return newMaps
+    }
+
+    async getLatestMap (message) {
+        try {
+            const guild     = this.guildsCrud.getById(message.guild.id)
+            const $t        = new I18N(guild.locale)
+            const mapList   = await this.fetchMapList()
+            if (!mapList)
+                return message.channel.send($t.get('errorCantFindMap'))
+            
+            const newMaps = this.getNewMapsObjFromHTML(mapList, false)
+            if (newMaps && newMaps.length > 0 ) {
+                message.channel.send(this.generateEmbed(newMaps[0], $t))
+                    .catch(err => process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`))
+            } else 
+                message.channel.send($t.get('errorCantFindMap'))
+        } catch (err) {
+            message.channel.send($t.get('errorCantFindMap'))
+            process.dLogger.log(`in controller/Website/getLatestMap: ${err.message}`)
+        }
+    }
+
+    async watchForNewMaps () {
+        const check = async () => {
+            const mapList = await this.fetchMapList()
+            if (!mapList)
+                return 
+            
+            const newMaps = this.getNewMapsObjFromHTML(mapList)
+            if (newMaps && newMaps.length > 0 )
+                this.broadcastNewMaps(newMaps)
+        }
+        check()
+        setInterval(check, 15 * 60000)
     }
 
     _genFooter (map, $t) {

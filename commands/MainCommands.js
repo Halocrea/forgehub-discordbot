@@ -3,6 +3,8 @@ require('dotenv').config()
 const SuperUserController   = require('../controller/SuperUser')
 const generateEmbed         = require('../utils/generateEmbed')
 const I18N                  = require('../utils/I18N')
+const Twitter               = require('../controller/Twitter')
+const Website               = require('../controller/Website')
 
 class MainCommands {
     constructor (client, guild) {
@@ -20,15 +22,22 @@ class MainCommands {
         
         for (let i = 1; i < cmdAndArgs.length; i++) 
             args += cmdAndArgs[i] + ' '
-
         args.trim()
-
         switch (cmd) {
             case this.$t.get('cmdHelp'): 
                 this.help(message)
                 break 
             case this.$t.get('cmdInvite'):
                 this.inviteBot(message)
+                break 
+            case this.$t.get('cmdLatest1'):
+                this.latest(message, args)
+                break 
+            case this.$t.get('cmdLatest2'):
+                this.latest(message, args)
+                break 
+            case this.$t.get('latest3'):
+                this.latest(message, args)
                 break 
             case this.$t.get('cmdPrefix'): 
                 this.superUserController.prefix(message, args)
@@ -53,7 +62,9 @@ class MainCommands {
         let description = ''
         description += this.$t.get('helpText', Object.assign({
                 prefix          : this.guild.prefix,
-                discordInvite   : 'https://discord.gg/74UAq84'
+                discordInvite   : 'https://discord.gg/74UAq84',
+                argMap          : this.$t.get('argMap'),
+                argTweet        : this.$t.get('argTweet')
             }, commands))
 
         message.channel.send(generateEmbed({
@@ -67,6 +78,17 @@ class MainCommands {
 
     inviteBot (message) {
         message.channel.send(this.$t.get('inviteCmdText', { link : `https://discordapp.com/oauth2/authorize?client_id=${message.client.user.id}&scope=bot&permissions=27712` }))
+    }
+
+    latest (message, args) {
+        switch(args.trim().toLowerCase()) {
+            case this.$t.get('argMap'):
+                new Website(message.client, false).getLatestMap(message)
+                break
+            case this.$t.get('argTweet'):
+                Twitter.getLatestTweet(message)
+                break
+        }
     }
 }
 
