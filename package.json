@@ -1,0 +1,45 @@
+{
+  "bugs": {
+    "url": "https://github.com/tepec/forgehub-discordbot/issues"
+  },
+  "demos": [
+    "https://discord.gg/74UAq84"
+  ],
+  "dependencies": {
+    "axios": "^0.19.2",
+    "better-sqlite3": "^7.0.1",
+    "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "got": "^11.1.0"
+  },
+  "description": "A Discord bot that automatically fetches latest map submissions on forgehub.com, latest FH's tweets, and alerts whenever FH goes live on Twitch! ",
+  "engines": {
+    "node": ">=12.16.1",
+    "yarn": ">=1.19.1"
+  },
+  "homepage": "https://github.com/tepec/forgehub-discordbot",
+  "keywords": [
+    "halo",
+    "discord",
+    "game",
+    "bot"
+  ],
+  "license": "GPL-3.0-only",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "Tepec Fett",
+      "email": "hi@tep.ec",
+      "web": "https://github.com/tepec"
+    }
+  ],
+  "name": "forgehub-discordbot",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/tepec/forgehub-discordbot"
+    }
+  ],
+  "version": "0.1.0"
+}
