@@ -18,6 +18,7 @@
     "goodCancel"                    : "Ah ouf, tu m'as fait peur !",
     "helpText"                      : "\n**Commandes générales**\n• `{prefix} {cmdHelp}` : afficher ce message\n• `{prefix} {cmdInvite}` : obtenir un lien pour inviter ce bot sur vos propres serveurs. \n**Commandes admins**\n• `{prefix} {cmdPrefix} new-prefix`: modifier le préfixe utilisé pour appeler le bot.\n• `{prefix} {cmdUninstall}`: Le bot supprimera toute donnée stockée concernant ce serveur et le quittera.\n\nPour poser des questions ou faire des suggestions aux développeurs du bot, n'hésitez pas à venir nous voir sur {discordInvite} !",
     "helpTitle"                     : "Aide pour le bot non-officiel ForgeHub !",
+    "inviteCmdText"                 : "Vous pouvez ajouter le bot ForgeHub à vos serveurs Discord en utilisant l'invitation suivante : {link}",
     "mapType"                       : "Type de carte", 
     "nbComments"                    : "commentaire | commentaires", 
     "nbDownloads"                   : "téléchargement | téléchargements",

@@ -18,6 +18,7 @@
     "goodCancel"                    : "Ah, you got me worried me but it's all good now!",
     "helpText"                      : "\n**General commands**\n• `{prefix} {cmdHelp}` : send help.\n• `{prefix} {cmdInvite}`: get an link to invite this bot to your own servers. \n**Admin commands**\n• `{prefix} {cmdPrefix} new-prefix`: change the prefix used to call the bot. Notice: the prefix won't be changed in the rules of the game.\n• `{prefix} {cmdUninstall}`: the bot will delete everything it stored about this Discord server and will leave it.\n\nTo ask questions to the developpers of this bot, feel free to contact us at {discordInvite} !",
     "helpTitle"                     : "Help for ForgeHub's unofficial bot!",
+    "inviteCmdText"                 : "You can add the FrogeHub bot to your own Discord server by using this link: {link}",
     "mapType"                       : "Map type", 
     "nbComments"                    : "comment | comments", 
     "nbDownloads"                   : "download | downloads",
