@@ -18,6 +18,7 @@
     "errorCantFindMap"              : "I was unable to find the latest map submission :(",
     "errorConfigureMeFirst"         : "You must configure me first!",
     "errorCommandNotFound"          : "I did not understand what you expected from me; to get the list of available commands, type `{prefix} {cmdHelp}`.",
+    "errorInvalidPrefix"            : "Invalid Prefix",
     "errorNotAllowed"               : "Only administrators can perform this action.", 
     "errorNotFullySetUpYet"         : "The admins of this server have not fully set things up for me, and they are the only ones to be allowed to do it. Try again just a tiny bit later or contact them!", 
     "errorCantPostThere"            : "It seems I cannot send messages into the channel you gave me; make sure you granted me enough permissions to do that, then call me again using `{prefix}`.", 

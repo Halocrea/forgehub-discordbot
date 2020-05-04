@@ -69,16 +69,6 @@ class Guilds {
 
     remove (id) {
         const info = this.db.prepare('DELETE FROM guilds WHERE id = ? LIMIT 1').run(id)
-
-        if (info.changes >= 0) {
-            try {
-                fs.unlinkSync(`data/duels-${id}.json`)
-                fs.unlinkSync(`data/duellists-${id}.json`)
-                
-            } catch (err) {
-                process.dLogger.log(`in crud/Guilds/remove: ${err.message}`)
-            }
-        }
         return info.changes >= 0
     }
 

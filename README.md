@@ -28,7 +28,7 @@
 A `Dockerfile` is available at the root of the project so you can easily set the bot up without having to care about any global dependency or anything. If you want to do it this way, make sure you have [Docker](https://www.docker.com) installed on your machine.
 
 ```bash session
-git clone https://github.com/tepec/forgehub-discordbot.git
+git clone https://github.com/Halocrea/forgehub-discordbot.git
 cd haloduels
 
 cp .env.dist .env
@@ -42,7 +42,7 @@ docker run -d -v /absolute/path/to/forgehub-discordbot/data:/app/data --restart=
 ### Without Docker
 Make sure you have the proper [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com) versions installed on your machine.
 ```bash session
-git clone https://github.com/tepec/forgehub-discordbot.git
+git clone https://github.com/Halocrea/forgehub-discordbot.git
 cd haloduels
 
 cp .env.dist .env
@@ -64,6 +64,19 @@ node index.js
 * 🇫🇷 French
 
 If you'd like to get the bot in another language, feel free to contact us and contribute! 
+
+## Commands list
+Use the command `!fh help` (or `!fh aide` in French) to get the full list of available commands. Here are the default English ones:
+
+**General commands**
+* `!fh help` : send help
+* `!fh latest map`: I will show the latest map submitted on forgehub.com.
+* `!fh latest tweet` : I'll post the latest tweet from the official @ForgeHub Twitter account.
+* `!fh invite`: get an link to invite this bot to your own servers. 
+
+**Admin commands**
+* `!fh prefix new-prefix`: change the prefix used to call the bot. Notice: the prefix won't be changed in the rules of the game.
+* `!fh uninstall`: the bot will delete everything it stored about this Discord server and will leave it.\n\nTo ask questions to the developpers of this bot, feel free to contact us at https://discord.gg/74UAq84!
 
 ## Contributing
 

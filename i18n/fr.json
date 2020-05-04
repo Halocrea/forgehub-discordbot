@@ -18,6 +18,7 @@
     "errorCantFindMap"              : "Je n'ai pas réussi à trouver la dernière carte postée sur le site :(",
     "errorConfigureMeFirst"         : "Vous devez me configurer !",
     "errorCommandNotFound"          : "Je n'ai pas compris ce que vous vouliez. Pour obtenir la liste des commandes disponibles, tapez `{prefix} {cmdHelp}`.",
+    "errorInvalidPrefix"            : "Préfixe invalide",
     "errorNotAllowed"               : "Seuls les administrateurs du serveur peuvent effectuer cette action.", 
     "errorNotFullySetUpYet"         : "Les admins de ce serveur ne m'ont pas encore configuré, et ils sont les seuls à pouvoir le faire. Réessayez un peu plus tard, ou demandez-leur de le faire !", 
     "errorCantPostThere"            : "Il semble que je n'ai pas les permissions nécessaires pour écrire dans ce channel. Assurez-vous de m'avoir donné les permissions nécessaires, puis rappelez-moi en tapant `{prefix}`.", 
