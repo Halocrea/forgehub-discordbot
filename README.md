@@ -75,12 +75,12 @@ Use the command `!fh help` (or `!fh aide` in French) to get the full list of ava
 * `!fh invite`: get an link to invite this bot to your own servers. 
 
 **Admin commands**
-* `!fh prefix new-prefix`: change the prefix used to call the bot. Notice: the prefix won't be changed in the rules of the game.
+* `!fh prefix new-prefix`: change the prefix used to call the bot. 
 * `!fh uninstall`: the bot will delete everything it stored about this Discord server and will leave it.\n\nTo ask questions to the developpers of this bot, feel free to contact us at https://discord.gg/74UAq84!
 
 ## Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/tepec/forgehub-discordbot/issues). 
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Halocrea/forgehub-discordbot/issues). 
 
 ## Show your support
 
