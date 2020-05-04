@@ -75,9 +75,9 @@ class StreamAlert {
                     url : data.stream.channel.url
                 }) 
             } else {
-                this.discordClient.user.setActivity('forgehub.com', {
+                this.discordClient.user.setActivity('!fh | forgehub.com', {
                     type: 'PLAYING',
-                    url : '!fh | https://www.forgehub.com'
+                    url : 'https://www.forgehub.com'
                 }) 
             }
         } catch (err) {
