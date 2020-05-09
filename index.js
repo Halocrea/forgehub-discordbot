@@ -87,6 +87,11 @@ client.on('guildCreate', guild => {
 
 client.on('guildDelete', guild => {
     process.dLogger.log(`${guild.name} (id: ${guild.id}) removed me.\nI'm serving ${client.guilds.size} servers now.`)
+    try {
+        new Guilds().remove(guild.id)
+    } catch (err) {
+        process.dLogger.log(`in index.js, couldn't remove the guild from database: ${err.message}`)
+    }
 })
 
 console.log('Sarting the bot...')

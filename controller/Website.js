@@ -23,11 +23,9 @@ class Website {
                 try {
                     const guild = this.discordClient.guilds.cache.get(g.id)
                     if (!guild)
-                        this.guildsCrud.remove() 
+                        return 
                     
                     const $t    = new I18N(guild.locale)
-                    if (!guild)
-                        return 
                     
                     const guildMapChannel = guild.channels.cache.get(g.mapsChanId)
                     maps.forEach((m, j) => {
