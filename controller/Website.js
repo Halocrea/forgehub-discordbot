@@ -22,6 +22,9 @@ class Website {
             setTimeout(async () => {
                 try {
                     const guild = this.discordClient.guilds.cache.get(g.id)
+                    if (!guild)
+                        this.guildsCrud.remove() 
+                    
                     const $t    = new I18N(guild.locale)
                     if (!guild)
                         return 
