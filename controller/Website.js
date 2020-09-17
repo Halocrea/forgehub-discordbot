@@ -51,12 +51,16 @@ class Website {
                         guildMapChannel.send(embed)
                             .catch(err => process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`))
                     } else {
-                        guildMapChannel.send($t.get('newMapOnSite'))
-                            .then(() => {
-                                guildMapChannel.send(this.generateEmbed(m, $t))
+                        maps.forEach((m, j) => {
+                            setTimeout(() => {
+                                guildMapChannel.send($t.get('newMapOnSite'))
+                                    .then(() => {
+                                        guildMapChannel.send(this.generateEmbed(m, $t))
+                                            .catch(err => process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`))
+                                    })
                                     .catch(err => process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`))
-                            })
-                            .catch(err => process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`))
+                            }, j * 60000) // to avoid Discord API rate limit
+                        })
                     }
                 } catch (err) {
                     process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`)
