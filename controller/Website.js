@@ -28,16 +28,36 @@ class Website {
                     const $t    = new I18N(guild.locale)
                     
                     const guildMapChannel = guild.channels.cache.get(g.mapsChanId)
-                    maps.forEach((m, j) => {
-                        setTimeout(() => {
-                            guildMapChannel.send($t.get('newMapOnSite'))
-                                .then(() => {
-                                    guildMapChannel.send(this.generateEmbed(m, $t))
-                                        .catch(err => process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`))
-                                })
-                                .catch(err => process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`))
-                        }, j * 60000) // to avoid Discord API rate limit
-                    })
+                    if (maps.length > 1) {
+                        const fhLogo    = 'https://www.forgehub.com/styles/forgehub/forgehub/favicon.png'
+                        let image       = false 
+                        let description = ''
+                        maps.forEach((m, j) => {
+                            description += `• **${m.title}** by ${m.author} [${this._getEmoteForType(m.type).emote} ${$t.get('type' + m.type)}]. \n`
+                            if (!image && m.img)
+                                image = m.img
+                        })
+                        const embed = new MessageEmbed()
+                            .setColor('#efefef')
+                            .setTitle($t.get('newMapOnSite', { number: maps.length }, maps.length))
+                            .setURL('https://www.forgehub.com/maps')
+                            .setThumbnail(fhLogo)
+                            .setAuthor('ForgeHub', fhLogo, 'https://www.forgehub.com/')
+                            .setDescription(description)
+                        
+                        if (image) 
+                            embed.setImage(image)
+
+                        guildMapChannel.send(embed)
+                            .catch(err => process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`))
+                    } else {
+                        guildMapChannel.send($t.get('newMapOnSite'))
+                            .then(() => {
+                                guildMapChannel.send(this.generateEmbed(m, $t))
+                                    .catch(err => process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`))
+                            })
+                            .catch(err => process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`))
+                    }
                 } catch (err) {
                     process.dLogger.log(`in controller/Website/broadcastNewMaps: ${err.message}`)
                 }
@@ -141,7 +161,7 @@ class Website {
                 this.broadcastNewMaps(newMaps)
         }
         check()
-        setInterval(check, 15 * 60000)
+        setInterval(check, 4 * 3600 * 1000) // every four hours
     }
 
     _genFooter (map, $t) {
