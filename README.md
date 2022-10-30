@@ -1,6 +1,6 @@
 <h1 align="center">Unofficial ForgeHub Discord Bot ⚒️</h1>
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-2.0.0-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/node-%3E%3D12.16.1-blue.svg" />
   <img src="https://img.shields.io/badge/yarn-%3E%3D1.19.1-blue.svg" />
   <a href="https://choosealicense.com/licenses/gpl-3.0/" target="_blank">
