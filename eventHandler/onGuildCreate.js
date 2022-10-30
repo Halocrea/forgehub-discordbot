@@ -40,8 +40,9 @@ const onGuildCreate = guild => {
 	process.dLogger.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!\nI'm serving ${guild.client.guilds.cache.size} servers now.`)
 
 	guildManager.addOrOverwrite(new Guild({
-		id  : guild.id, 
-		name: guild.name
+		id    : guild.id, 
+		locale: ['en', 'es', 'fr'].includes(guild.preferredLocale.slice(0, 2)) ? guild.preferredLocale.slice(0, 2) : 'en',
+		name  : guild.name
 	}))
 
 	const commands = []

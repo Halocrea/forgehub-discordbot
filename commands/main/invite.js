@@ -10,13 +10,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName($default.get('cmdInvite'))
 		.setNameLocalizations({
-			es: $default.getByLang('es', 'cmdInvite'),
-			fr: $default.getByLang('fr', 'cmdInvite')
+			'es-ES': $default.getByLang('es', 'cmdInvite'),
+			fr     : $default.getByLang('fr', 'cmdInvite')
 		})
 		.setDescription($default.get('cmdInviteDescription'))
 		.setDescriptionLocalizations({
-			es: $default.getByLang('es', 'cmdInviteDescription'),
-			fr: $default.getByLang('fr', 'cmdInviteDescription')
+			'es-ES': $default.getByLang('es', 'cmdInviteDescription'),
+			fr     : $default.getByLang('fr', 'cmdInviteDescription')
 		}),
 
 	async execute (interaction) {

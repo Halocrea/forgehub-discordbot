@@ -17,24 +17,24 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName($default.get('setLanguage'))
 		.setNameLocalizations({
-			es: $default.getByLang('es', 'setLanguage'),
-			fr: $default.getByLang('fr', 'setLanguage')
+			'es-ES': $default.getByLang('es', 'setLanguage'),
+			fr     : $default.getByLang('fr', 'setLanguage')
 		})
 		.setDescription($default.get('setLanguageDescription'))
 		.setDescriptionLocalizations({
-			es: $default.getByLang('es', 'setLanguageDescription'),
-			fr: $default.getByLang('fr', 'setLanguageDescription')
+			'es-ES': $default.getByLang('es', 'setLanguageDescription'),
+			fr     : $default.getByLang('fr', 'setLanguageDescription')
 		})
 		.addStringOption(option => 
 			option.setName($default.get('language'))
 				.setNameLocalizations({
-					es: $default.getByLang('es', 'language'),
-					fr: $default.getByLang('fr', 'language')
+					'es-ES': $default.getByLang('es', 'language'),
+					fr     : $default.getByLang('fr', 'language')
 				})
 				.setDescription($default.get('language'))
 				.setDescriptionLocalizations({
-					es: $default.getByLang('es', 'language'),
-					fr: $default.getByLang('fr', 'language')
+					'es-ES': $default.getByLang('es', 'language'),
+					fr     : $default.getByLang('fr', 'language')
 				})
 				.setRequired(true)
 				.addChoices(...availableLanguages)

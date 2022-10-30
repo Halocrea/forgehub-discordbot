@@ -10,7 +10,7 @@
 	"cmdHelpDescription"     : "Proporcionar información relacionada con el funcionamiento del bot.",
 	"cmdInvite"              : "invitar",
 	"cmdInviteDescription"   : "Recibir un link de invitación para así poder añadir el bot a tu propio servidor",
-	"cmdSetup"               : "configuración ",
+	"cmdSetup"               : "configuración",
 	"cmdSetupDescription"    : "Para configurar dónde el bot va a publicar automáticamente en el servidor",
 	"confirmChannel"         : "_¡Pssst!_ Ahora publicaré de manera automatica en el siguiente canal {topic}. ¡A gozarlo!",
 	"credits"                : "Hecho con ♥️ por Halo Création",

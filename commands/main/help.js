@@ -11,13 +11,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName($default.get('cmdHelp'))
 		.setNameLocalizations({
-			es: $default.getByLang('es', 'cmdHelp'),
-			fr: $default.getByLang('fr', 'cmdHelp')
+			'es-ES': $default.getByLang('es', 'cmdHelp'),
+			fr     : $default.getByLang('fr', 'cmdHelp')
 		})
 		.setDescription($default.get('cmdHelpDescription'))
 		.setDescriptionLocalizations({
-			es: $default.getByLang('es', 'cmdHelpDescription'),
-			fr: $default.getByLang('fr', 'cmdHelpDescription')
+			'es-ES': $default.getByLang('es', 'cmdHelpDescription'),
+			fr     : $default.getByLang('fr', 'cmdHelpDescription')
 		}),
 
 	async execute (interaction) {

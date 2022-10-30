@@ -18,24 +18,24 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName($default.get('cmdSetup'))
 		.setNameLocalizations({
-			es: $default.getByLang('es', 'cmdSetup'),
-			fr: $default.getByLang('fr', 'cmdSetup')
+			'es-ES': $default.getByLang('es', 'cmdSetup'),
+			fr     : $default.getByLang('fr', 'cmdSetup')
 		})
 		.setDescription($default.get('cmdSetupDescription'))
 		.setDescriptionLocalizations({
-			es: $default.getByLang('es', 'cmdSetupDescription'),
-			fr: $default.getByLang('fr', 'cmdSetupDescription')
+			'es-ES': $default.getByLang('es', 'cmdSetupDescription'),
+			fr     : $default.getByLang('fr', 'cmdSetupDescription')
 		})
 		.addStringOption(option => 
 			option.setName($default.get('topic'))
 				.setNameLocalizations({
-					es: $default.getByLang('es', 'topic'),
-					fr: $default.getByLang('fr', 'topic')
+					'es-ES': $default.getByLang('es', 'topic'),
+					fr     : $default.getByLang('fr', 'topic')
 				})
 				.setDescription($default.get('topicDescription'))
 				.setDescriptionLocalizations({
-					es: $default.getByLang('es', 'topicDescription'),
-					fr: $default.getByLang('fr', 'topicDescription')
+					'es-ES': $default.getByLang('es', 'topicDescription'),
+					fr     : $default.getByLang('fr', 'topicDescription')
 				})
 				.setRequired(true)
 				.addChoices(...topics)
@@ -44,13 +44,13 @@ module.exports = {
 			option
 				.setName($default.get('target'))
 				.setNameLocalizations({
-					es: $default.getByLang('es', 'target'),
-					fr: $default.getByLang('fr', 'target')
+					'es-ES': $default.getByLang('es', 'target'),
+					fr     : $default.getByLang('fr', 'target')
 				})
 				.setDescription($default.get('targetDescription'))
 				.setDescriptionLocalizations({
-					es: $default.getByLang('es', 'targetDescription'),
-					fr: $default.getByLang('fr', 'targetDescription')
+					'es-ES': $default.getByLang('es', 'targetDescription'),
+					fr     : $default.getByLang('fr', 'targetDescription')
 				})							
 				.setRequired(true)
 		)

@@ -40,7 +40,7 @@ docker run -d -v /absolute/path/to/forgehub-discordbot/data:/app/data --restart=
 ```
 
 ### Without Docker
-Make sure you have the proper [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com) versions installed on your machine.
+Make sure you have the proper [Node.js](https://nodejs.org/en/) and [NPM](https://www.npmjs.com/) versions installed on your machine.
 ```bash session
 git clone https://github.com/Halocrea/forgehub-discordbot.git
 cd forgehub-discordbot

@@ -15,24 +15,24 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName($default.get('latest'))
 		.setNameLocalizations({
-			es: $default.getByLang('es', 'latest'),
-			fr: $default.getByLang('fr', 'latest')
+			'es-ES': $default.getByLang('es', 'latest'),
+			fr     : $default.getByLang('fr', 'latest')
 		})
 		.setDescription($default.get('latestDescription'))
 		.setDescriptionLocalizations({
-			es: $default.getByLang('es', 'latestDescription'),
-			fr: $default.getByLang('fr', 'latestDescription')
+			'es-ES': $default.getByLang('es', 'latestDescription'),
+			fr     : $default.getByLang('fr', 'latestDescription')
 		})
 		.addStringOption(option => 
 			option.setName($default.get('topic'))
 				.setNameLocalizations({
-					es: $default.getByLang('es', 'topic'),
-					fr: $default.getByLang('fr', 'topic')
+					'es-ES': $default.getByLang('es', 'topic'),
+					fr     : $default.getByLang('fr', 'topic')
 				})
 				.setDescription($default.get('topicDescription2'))
 				.setDescriptionLocalizations({
-					es: $default.getByLang('es', 'topicDescription2'),
-					fr: $default.getByLang('fr', 'topicDescription2')
+					'es-ES': $default.getByLang('es', 'topicDescription2'),
+					fr     : $default.getByLang('fr', 'topicDescription2')
 				})
 				.setRequired(true)
 				.addChoices(...topics)
