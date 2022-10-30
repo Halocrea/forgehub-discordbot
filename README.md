@@ -6,7 +6,7 @@
   <a href="https://choosealicense.com/licenses/gpl-3.0/" target="_blank">
     <img alt="License: GNU GPLv3" src="https://img.shields.io/badge/License-GNU GPLv3-yellow.svg" />
   </a>
-  <img src="https://img.shields.io/maintenance/yes/2020" />
+  <img src="https://img.shields.io/maintenance/yes/2022" />
   <br />
   <a href="https://discord.gg/74UAq84" target="_blank">
     <img src="https://img.shields.io/discord/443833089966342145?color=7289DA&label=Halo%20Cr%C3%A9ation&logo=Discord" />
