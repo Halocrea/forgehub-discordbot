@@ -11,7 +11,7 @@
     "cheerio": "^1.0.0-rc.3",
     "discord.js": "^14.6.0",
     "dotenv": "^8.2.0",
-    "got": "^11.1.0",
+    "got": "^11.8.5",
     "node-twitch": "^0.4.7"
   },
   "description": "A Discord bot that automatically fetches latest map submissions on forgehub.com, latest FH's tweets, and alerts whenever FH goes live on Twitch! ",
