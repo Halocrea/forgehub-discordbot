@@ -42,7 +42,7 @@
       "url": "https://github.com/tepec/forgehub-discordbot"
     }
   ],
-  "version": "0.1.0",
+  "version": "2.0.0",
   "devDependencies": {
     "eslint": "^8.26.0",
     "eslint-plugin-align-assignments": "^1.1.2",
