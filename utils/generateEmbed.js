@@ -1,22 +1,35 @@
-const { MessageEmbed } = require('discord.js')
+const { EmbedBuilder } = require('discord.js')
 
-module.exports = ({color, description, fields, footer, image, thumbnail, title}) => {
-    const embed = new MessageEmbed()
-        .setTitle(title || '')
-        .setColor(color || '#faa61a')
-        .setDescription(description || '')
+module.exports = ({ author, color, description, fields, footer, image, thumbnail, title }) => {
+	const embed = new EmbedBuilder()
+		.setTitle(title || '')
+		.setColor(color || 16426522)
+		.setDescription(description || '')
 
-    if (thumbnail)
-        embed.setThumbnail(thumbnail)
+	if (author) {
+		embed.setAuthor({
+			name   : author.name,
+			iconURL: author.iconURL,
+			url    : author?.url
+		})
+	}
 
-    for (let i in fields)
-        embed.addField(fields[i].name, fields[i].value, !!fields[i].inline)
+	if (thumbnail)
+		embed.setThumbnail(thumbnail)
 
-    if (image)
-        embed.setImage(image)
+	for (let i in fields) {
+		embed.addFields({
+			name  : fields[i].name,
+			value : fields[i].value,
+			inline: fields[i]?.inline || false
+		})
+	}
 
-    if (footer)
-        embed.setFooter(footer)
+	if (image)
+		embed.setImage(image)
 
-    return embed
+	if (footer)
+		embed.setFooter({ text: footer })
+
+	return embed
 }

@@ -20,8 +20,8 @@
 
 ## Prerequisites
 
-- [node](https://nodejs.org/en/) >=12.16.1
-- [yarn](https://yarnpkg.com) >=1.19.1
+- [node](https://nodejs.org/en/) >=16.13.2
+- [npm](https://www.npmjs.com/) >=8.4.0
 
 ## Install 
 ### With Docker 
@@ -29,7 +29,7 @@ A `Dockerfile` is available at the root of the project so you can easily set the
 
 ```bash session
 git clone https://github.com/Halocrea/forgehub-discordbot.git
-cd haloduels
+cd forgehub-discordbot
 
 cp .env.dist .env
 vi .env
@@ -43,13 +43,13 @@ docker run -d -v /absolute/path/to/forgehub-discordbot/data:/app/data --restart=
 Make sure you have the proper [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com) versions installed on your machine.
 ```bash session
 git clone https://github.com/Halocrea/forgehub-discordbot.git
-cd haloduels
+cd forgehub-discordbot
 
 cp .env.dist .env
 vi .env
 #provide the information required in the .env file
 
-yarn
+npm
 
 node index.js
 ```
@@ -62,23 +62,27 @@ node index.js
 ## Supported languages 
 * 🇺🇸 English
 * 🇫🇷 French
+* 🇪🇸 Spanish
 
 If you'd like to get the bot in another language, feel free to contact us and contribute! 
 
 ## Commands list
-Use the command `!fh help` (or `!fh aide` in French) to get the full list of available commands. Here are the default English ones:
+Here's the list of slash commands available once the bot is on a server; please note that these commands are localized, for example `/help` to show this list of commands is `/aide` in French and `/ayuda` in Spanish.
 
 **General commands**
-* `!fh help` : send help
-* `!fh latest map`: I will show the latest map submitted on forgehub.com.
-* `!fh latest tweet` : I'll post the latest tweet from the official @ForgeHub Twitter account.
-* `!fh invite`: get an link to invite this bot to your own servers. 
+  * `/help`: show this help message.
+  * `/latest` `topic`: I will show you the latest map or tweet depending on which of those two_topics_ you choose.
+  * `/invite`: get a link to invite this bot to your own servers.
 
 **Admin commands**
-* `!fh prefix new-prefix`: change the prefix used to call the bot. 
-* `!fh uninstall`: the bot will delete everything it stored about this Discord server and will leave it.\n\nTo ask questions to the developpers of this bot, feel free to contact us at https://discord.gg/74UAq84!
+  * `/setup` `topic` `channel`: You can set the channel into which I will automatically post the latest map/tweet/stream alert.
+  * `/set-language` `language`: to define which language the bot should use whenever it automatically posts a message.
+  
+To ask questions to the developers of this bot, feel free to contact us at {discordInvite}!
 
-## Contributing
+## Contribution
+
+Thank you RBLS#7532 for the spanish translation!
 
 Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Halocrea/forgehub-discordbot/issues). 
 
