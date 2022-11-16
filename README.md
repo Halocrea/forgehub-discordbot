@@ -57,7 +57,7 @@ node index.js
 ## Setup 
 * If you never set up a Discord bot before, please follow the instructions over [here](https://discordapp.com/developers/docs/intro).
 * If you don't want to host your own version of the bot but consume an existing instance of it, you can use the following invite link: https://discordapp.com/oauth2/authorize?client_id=706124989597876294&scope=bot&permissions=27712 
-* Once that is done, invite the bot to your server, and type `!fh` to start the installation wizard.
+* Once that is done, invite the bot to your server, and follow the instructions of the greeting message to learn about the available slash commands.
 
 ## Supported languages 
 * 🇺🇸 English

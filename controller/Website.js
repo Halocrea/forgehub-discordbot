@@ -28,7 +28,7 @@ class Website {
 
 					const guildMapChannel = guild.channels.cache.get(g.mapsChanId)
 					if (maps.length > 1) {
-						const fhLogo    = 'https://www.forgehub.com/styles/forgehub/forgehub/favicon.png'
+						const fhLogo    = 'https://cdn.discordapp.com/attachments/740661585986715660/1037174451210555462/fh_logo.png'
 						let image       = false 
 						let description = ''
 						maps.forEach((m, j) => {
@@ -84,7 +84,7 @@ class Website {
 	}
 
 	buildEmbed (map, $t) {
-		const fhLogo = 'https://www.forgehub.com/styles/forgehub/forgehub/favicon.png'
+		const fhLogo = 'https://cdn.discordapp.com/attachments/740661585986715660/1037174451210555462/fh_logo.png'
 		const embed  = new EmbedBuilder()
 			.setColor(15724527)
 			.setTitle(map.title)

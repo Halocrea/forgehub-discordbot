@@ -29,8 +29,8 @@ class StreamAlert {
 						return 
                     
 					const streamAlertChannel = guild.channels.cache.get(g.streamAlertChanId)
-					if (!streamAlertChannel)
-						return 
+					if (!streamAlertChannel?.send) 
+						return false
                         
 					streamAlertChannel.send({ embeds: [
 						generateEmbed({
@@ -52,7 +52,7 @@ class StreamAlert {
 							],
 							image    : streamInfo?.thumbnail_url.replace('{width}', '640').replace('{height}', '382'),
 							title    : 'LIVE ON TWITCH!',
-							thumbnail: 'https://www.forgehub.com/styles/forgehub/forgehub/favicon.png'
+							thumbnail: 'https://cdn.discordapp.com/attachments/740661585986715660/1037174451210555462/fh_logo.png'
 						})
 					]})
 				} catch (err) {
