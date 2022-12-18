@@ -85,7 +85,12 @@ class Website {
 
 	buildEmbed (map, $t) {
 		const fhLogo = 'https://cdn.discordapp.com/attachments/740661585986715660/1037174451210555462/fh_logo.png'
-		const embed  = new EmbedBuilder()
+		let type     = this._getEmoteForType(map.type).emote + $t.get(`type${map.type}`)
+		
+		if (type === 'undefinedtype')
+			type = $t.get('Unspecified')
+
+		const embed = new EmbedBuilder()
 			.setColor(15724527)
 			.setTitle(map.title)
 			.setURL(map.link)
@@ -104,7 +109,7 @@ class Website {
 				},
 				{
 					name  : $t.get('mapType'),
-					value : this._getEmoteForType(map.type).emote + $t.get(`type${map.type}`),
+					value : type,
 					inline: true
 				}
 			])

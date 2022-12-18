@@ -47,8 +47,10 @@ class Twitter {
 						return 
                     
 					const guildTweetsChannel = guild.channels.cache.get(g.tweetsChanId)
-					guildTweetsChannel.send(tweetURL)
-						.catch(err => process.dLogger.log(`in controller/Twitter/broadcastTweetURL: ${err.message}`))
+					if (guildTweetsChannel) {
+						guildTweetsChannel.send(tweetURL)
+							.catch(err => process.dLogger.log(`in controller/Twitter/broadcastTweetURL: ${err.message}`))
+					}
 				} catch (err) {
 					process.dLogger.log(`in controller/Twitter/broadcastTweetURL: ${err.message}`)
 				}
